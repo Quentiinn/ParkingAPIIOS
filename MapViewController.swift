@@ -64,6 +64,15 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
     }
 
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let annView = view.annotation
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detalleVC = storyboard.instantiateViewController(withIdentifier: "Detalle") as! DetailViewController
+        
+        
+        self.navigationController?.pushViewController(detalleVC, animated: true)
+    }
     
 
     let regionRadius: CLLocationDistance = 10000
