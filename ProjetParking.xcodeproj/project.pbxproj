@@ -23,6 +23,7 @@
 		0DFF9D6F201876870062D45B /* UtilisateurController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9D6E201876870062D45B /* UtilisateurController.swift */; };
 		0DFF9D732018877A0062D45B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9D722018877A0062D45B /* MapViewController.swift */; };
 		2600F33E202A122400D42B3F /* PlaceParking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2600F33D202A122400D42B3F /* PlaceParking.swift */; };
+		262BBF16202F6EB50038097A /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262BBF15202F6EB50038097A /* AnnotationPin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0DFF9D6E201876870062D45B /* UtilisateurController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilisateurController.swift; sourceTree = "<group>"; };
 		0DFF9D722018877A0062D45B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		2600F33D202A122400D42B3F /* PlaceParking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceParking.swift; sourceTree = "<group>"; };
+		262BBF15202F6EB50038097A /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				0D5A902F20163997002AAFAA /* Assets.xcassets */,
 				0D5A903120163997002AAFAA /* LaunchScreen.storyboard */,
 				0D5A903420163997002AAFAA /* Info.plist */,
+				262BBF15202F6EB50038097A /* AnnotationPin.swift */,
 			);
 			path = ProjetParking;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262BBF16202F6EB50038097A /* AnnotationPin.swift in Sources */,
 				0D5A902B20163997002AAFAA /* ViewController.swift in Sources */,
 				0D2E44F2201F2C8F00B02D8A /* TabBarController.swift in Sources */,
 				2600F33E202A122400D42B3F /* PlaceParking.swift in Sources */,

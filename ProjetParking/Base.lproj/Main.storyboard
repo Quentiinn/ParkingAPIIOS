@@ -46,11 +46,7 @@
                                 <segue destination="MVg-zL-vWP" kind="unwind" unwindAction="unwindFromMapViewControllerWithSegue:" id="XyE-Og-GFw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vti-sH-UBa">
-                            <connections>
-                                <segue destination="I3q-HH-cxI" kind="show" identifier="EditPlace" id="zP4-lh-glR"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vti-sH-UBa"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k1k-dh-2yv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +182,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tt0-Tg-xs1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AZt-Q9-GxN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4537" y="123"/>
+            <point key="canvasLocation" x="5473" y="-450"/>
         </scene>
         <!--Mes places-->
         <scene sceneID="QSL-dg-W0c">
@@ -237,7 +233,11 @@
                                 <segue destination="Ri5-uQ-J1O" kind="unwind" unwindAction="unwindFromMapViewControllerWithSegue:" id="ywG-Ah-RBv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qLq-5c-upv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qLq-5c-upv">
+                            <connections>
+                                <segue destination="I3q-HH-cxI" kind="show" id="27F-95-ANX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="map" destination="3FE-tn-vjL" id="v93-wv-Ghn"/>
@@ -280,7 +280,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9W-wM-KCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3740" y="123"/>
+            <point key="canvasLocation" x="5473" y="-1218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yw1-rc-qLz">

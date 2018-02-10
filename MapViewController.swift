@@ -12,12 +12,18 @@ import MapKit
 
 
 
-class MapViewController: UIViewController  , CLLocationManagerDelegate{
+class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapViewDelegate{
 
     @IBOutlet weak var map: MKMapView!
+    
+    var pin: AnnotationPin!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var initi:CLLocation
+        map.delegate = self
         initi = CLLocation(latitude : 47.6581356, longitude : 6.84562070000004)
         centerMapOnLocation(location: initi)
 
@@ -32,14 +38,11 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate{
                 print(place?.adresse)
                 print(lat)
                 print(long)
-                let annotation = MKPointAnnotation()
                 let initialLocation: CLLocationCoordinate2D
                 if lat != nil{
                     initialLocation = CLLocationCoordinate2DMake(lat!, long!)
-                    annotation.coordinate = initialLocation
-                    annotation.title = place?.adresse
-                    //annotation.subtitle =
-                    self.map.addAnnotation(annotation);
+                    self.pin = AnnotationPin(title: (place?.adresse)! , Subtitle: "azeaze" , coordinate: initialLocation)
+                    self.map.addAnnotation(self.pin)
                 }
 
             }
@@ -49,6 +52,19 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate{
         }
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pinView = MKPinAnnotationView(annotation: pin, reuseIdentifier: "pin")
+            pinView.canShowCallout = true
+        
+        pinView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        return pinView
+    }
+
+    
+    
 
     let regionRadius: CLLocationDistance = 10000
     func centerMapOnLocation(location: CLLocation) {
