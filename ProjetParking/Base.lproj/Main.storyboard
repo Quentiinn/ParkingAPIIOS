@@ -427,11 +427,22 @@
                     <navigationItem key="navigationItem" title="Ajouter une place" id="8y7-Ec-138">
                         <barButtonItem key="leftBarButtonItem" title="Annuler" id="AM0-qc-iza">
                             <connections>
-                                <segue destination="74m-85-H4p" kind="unwind" unwindAction="unwindFromMapViewControllerWithSegue:" id="Shk-zl-dbs"/>
+                                <segue destination="74m-85-H4p" kind="unwind" unwindAction="unwindFromAddEditControllerWithSegue:" id="FMA-NB-JDz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Enregistrer" id="C0V-CU-Nkj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Enregistrer" id="C0V-CU-Nkj">
+                            <connections>
+                                <segue destination="74m-85-H4p" kind="unwind" identifier="AddPlace" unwindAction="unwindFromAddEditControllerWithSegue:" id="BRP-RV-4G7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="AdresseText" destination="Gmg-J3-0VP" id="ptB-vH-1Ye"/>
+                        <outlet property="DisponibleSwitch" destination="amN-rS-yij" id="Evf-jC-EFq"/>
+                        <outlet property="PrixText" destination="RCC-8A-jwy" id="ul6-7k-gds"/>
+                        <outlet property="SouterrainSwitch" destination="K9z-92-IcT" id="NiS-To-Vjr"/>
+                        <outlet property="SurveillerSwitch" destination="ceI-T9-IuG" id="E2z-wS-CHz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xke-Hv-qIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="74m-85-H4p" userLabel="Exit" sceneMemberID="exit"/>

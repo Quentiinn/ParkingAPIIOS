@@ -99,5 +99,60 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    @IBAction func unwindFromAddEditController(segue: UIStoryboardSegue){
+        if segue.identifier == "AddPlace"{
+            //ajout de la place de parking dans la bdd
+            let source = segue.source as! AddEditTableViewController
+            print(String(describing: source.AdresseText.text));
+            //let postString = "name=nom&age=20&point=344&capitaine=true"
+            var surveiller: Int
+            var souterrain: Int
+            var dispo: Int
+            var adresse: String
+            var prix: Int
+            prix = Int(source.PrixText.text!)!
+            adresse = source.AdresseText.text!
+            if(source.SurveillerSwitch.isOn){
+                surveiller = 1
+            }else{
+                surveiller = 0
+            }
+            
+            if (source.SouterrainSwitch.isOn){
+                souterrain = 1
+            }else{
+                souterrain = 0
+            }
+            
+            if (source.DisponibleSwitch.isOn){
+                dispo = 1
+            }else{
+                dispo = 0
+            }
+            
+            let postString = "adresse=\(adresse)&prix=\(prix)&surveille=\(surveiller)&souterrain=\(souterrain)&dispo=\(dispo)"
+            print(postString)
+            // create post request
+            let url = URL(string: "http://quentindev.ovh/Parking/user.php?todo=addPlace")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            // insert json data to the request
+            request.httpBody = postString.data(using: String.Encoding.utf8)
+            
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                print(data)
+            }
+            
+            task.resume()
+            
+            viewDidLoad()
+        }
+        
+    }
 
 }

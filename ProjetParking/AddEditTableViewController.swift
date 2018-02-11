@@ -10,6 +10,14 @@ import UIKit
 
 class AddEditTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var AdresseText: UITextField!
+    
+    @IBOutlet weak var PrixText: UITextField!
+    
+    @IBOutlet weak var SurveillerSwitch: UISwitch!
+    @IBOutlet weak var SouterrainSwitch: UISwitch!
+    @IBOutlet weak var DisponibleSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,5 +99,7 @@ class AddEditTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+   
 
 }
