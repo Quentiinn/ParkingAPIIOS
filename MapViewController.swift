@@ -18,8 +18,6 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
     
     var pin: AnnotationPin!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         var initi:CLLocation
@@ -35,20 +33,15 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
                 let placemarks = placemarks?.first
                 let lat = placemarks?.location?.coordinate.latitude
                 let long = placemarks?.location?.coordinate.longitude
-                print(place?.adresse)
-                print(lat)
-                print(long)
+                
                 let initialLocation: CLLocationCoordinate2D
                 if lat != nil{
                     initialLocation = CLLocationCoordinate2DMake(lat!, long!)
-                    self.pin = AnnotationPin(title: (place?.adresse)! , Subtitle: "azeaze" , coordinate: initialLocation)
+                    self.pin = AnnotationPin(title: (place?.adresse)! , Subtitle: String(describing: place?.prixHoraire) , coordinate: initialLocation , adresse: (place?.adresse)! , prix: (place?.prixHoraire)!, surveiller: (place?.surveiller)! , souterrain: (place?.souterrain)! , dispo: (place?.dispo)! , id: (place?.id)! )
                     self.map.addAnnotation(self.pin)
                 }
 
             }
-                
-                
-            
         }
         // Do any additional setup after loading the view.
     }
@@ -62,14 +55,21 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
         pinView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         return pinView
     }
+    
+    
 
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let annView = view.annotation
-        
+        let annView = view.annotation as! AnnotationPin
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detalleVC = storyboard.instantiateViewController(withIdentifier: "Detalle") as! DetailViewController
-        
+        detalleVC.adresse = annView.adresse!
+        detalleVC.prix = Int16(Int(annView.prix))
+        detalleVC.dispo = Int16(annView.dispo)
+        detalleVC.surveiller = Int16(annView.surveiller)
+        detalleVC.souterrain = Int16(annView.souterrain)
+        detalleVC.id = Int16(annView.id)
+      
         
         self.navigationController?.pushViewController(detalleVC, animated: true)
     }

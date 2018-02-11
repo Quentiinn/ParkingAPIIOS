@@ -2,85 +2,67 @@
 //  DetailViewController.swift
 //  ProjetParking
 //
-//  Created by quentin courvoisier on 10/02/2018.
+//  Created by quentin courvoisier on 11/02/2018.
 //  Copyright © 2018 com.iut-bm.univ. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UIViewController {
 
+    @IBOutlet weak var lblPrix: UILabel!
+    @IBOutlet weak var lblAdresse: UILabel!
+    
+    @IBOutlet weak var lblSouterrain: UILabel!
+    
+    @IBOutlet weak var lblSurveiller: UILabel!
+    @IBOutlet weak var lblDispo: UILabel!
+    @IBOutlet weak var BtReserver: UIButton!
+    @IBAction func onClickReserver(_ sender: Any) {
+        print("reserver")
+        
+        //let postString = "name=nom&age=20&point=344&capitaine=true"
+        let postString = "id=\(id)&id_utilisateur=1"
+        print(postString)
+        // create post request
+        let url = URL(string: "http://quentindev.ovh/Parking/user.php?todo=reserver")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // insert json data to the request
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            print(data)
+        }
+        
+        task.resume()
+        
+    }
+    var adresse: String = ""
+    var prix: Int16 = 0
+    var dispo: Int16 = 0
+    var surveiller: Int16 = 0
+    var souterrain: Int16 = 0
+    var id: Int16 = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        lblAdresse.text = adresse
+        lblPrix.text = String(prix)
+        lblDispo.text = String(dispo)
+        lblSouterrain.text = String(souterrain)
+        lblSurveiller.text = String(surveiller)
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+    
 
     /*
     // MARK: - Navigation
