@@ -20,11 +20,17 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         var initi:CLLocation
         map.delegate = self
         initi = CLLocation(latitude : 47.6581356, longitude : 6.84562070000004)
         centerMapOnLocation(location: initi)
-
+        let allAnnotations = self.map.annotations
+        self.map.removeAnnotations(allAnnotations)
         let placeController = PlaceController()
         placeController.fetchPlace { (place) in
             let geoCoder = CLGeocoder()
@@ -40,13 +46,11 @@ class MapViewController: UIViewController  , CLLocationManagerDelegate, MKMapVie
                     self.pin = AnnotationPin(title: (place?.adresse)! , Subtitle: String(describing: place?.prixHoraire) , coordinate: initialLocation , adresse: (place?.adresse)! , prix: (place?.prixHoraire)!, surveiller: (place?.surveiller)! , souterrain: (place?.souterrain)! , dispo: (place?.dispo)! , id: (place?.id)! )
                     self.map.addAnnotation(self.pin)
                 }
-
+                
             }
         }
-        // Do any additional setup after loading the view.
+    
     }
-    
-    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinView = MKPinAnnotationView(annotation: pin, reuseIdentifier: "pin")

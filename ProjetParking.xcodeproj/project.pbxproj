@@ -23,6 +23,8 @@
 		0DFF9D6F201876870062D45B /* UtilisateurController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9D6E201876870062D45B /* UtilisateurController.swift */; };
 		0DFF9D732018877A0062D45B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9D722018877A0062D45B /* MapViewController.swift */; };
 		262BBF16202F6EB50038097A /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262BBF15202F6EB50038097A /* AnnotationPin.swift */; };
+		2684A7962030F1C000CF95C5 /* GetPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684A7952030F1C000CF95C5 /* GetPlaceTableViewController.swift */; };
+		2684A79A2030FCB000CF95C5 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684A7992030FCB000CF95C5 /* PlaceTableViewCell.swift */; };
 		26E0CC842030CC590069E171 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0CC832030CC590069E171 /* DetailViewController.swift */; };
 		26E0CC862030DAED0069E171 /* AddEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0CC852030DAED0069E171 /* AddEditTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		0DFF9D6E201876870062D45B /* UtilisateurController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilisateurController.swift; sourceTree = "<group>"; };
 		0DFF9D722018877A0062D45B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		262BBF15202F6EB50038097A /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
+		2684A7952030F1C000CF95C5 /* GetPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceTableViewController.swift; sourceTree = "<group>"; };
+		2684A7992030FCB000CF95C5 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		26E0CC832030CC590069E171 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		26E0CC852030DAED0069E171 /* AddEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 		0D5A901C20163997002AAFAA = {
 			isa = PBXGroup;
 			children = (
+				2684A7992030FCB000CF95C5 /* PlaceTableViewCell.swift */,
 				0D5A902720163997002AAFAA /* ProjetParking */,
 				0D5A903C20163997002AAFAA /* ProjetParkingTests */,
 				0D5A904720163997002AAFAA /* ProjetParkingUITests */,
@@ -126,6 +131,7 @@
 				0D2E44EF201F282700B02D8A /* UserManager.swift */,
 				0DFF9D722018877A0062D45B /* MapViewController.swift */,
 				0D5A902C20163997002AAFAA /* Main.storyboard */,
+				2684A7952030F1C000CF95C5 /* GetPlaceTableViewController.swift */,
 				26E0CC832030CC590069E171 /* DetailViewController.swift */,
 				0D2E44F1201F2C8F00B02D8A /* TabBarController.swift */,
 				0DFF9D6A2018733A0062D45B /* Utilisateur.swift */,
@@ -300,11 +306,13 @@
 				0D2E44F0201F282700B02D8A /* UserManager.swift in Sources */,
 				0DFF9D6F201876870062D45B /* UtilisateurController.swift in Sources */,
 				0DFF9D6D201876080062D45B /* URL+Helpers.swift in Sources */,
+				2684A7962030F1C000CF95C5 /* GetPlaceTableViewController.swift in Sources */,
 				0D4738AF2021BC170063A052 /* Place.swift in Sources */,
 				0D4738B12021BF1B0063A052 /* PlaceController.swift in Sources */,
 				0DFF9D6B2018733A0062D45B /* Utilisateur.swift in Sources */,
 				26E0CC862030DAED0069E171 /* AddEditTableViewController.swift in Sources */,
 				0D5A902920163997002AAFAA /* AppDelegate.swift in Sources */,
+				2684A79A2030FCB000CF95C5 /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,6 @@ import Foundation
 
 
 class PlaceController {
-    var toto = [Place]()
     func fetchPlace(completion: @escaping (Place?) -> Void) {
         let baseURL = URL(string: "http://quentindev.ovh/Parking/user.php")!
         
@@ -37,17 +36,35 @@ class PlaceController {
                 
             }
         
-            }
+        }
         task.resume()
-
+    }
+    
+    func fetchPlaceUtilisateur(completion: @escaping (Place?) -> Void , id_utilisateur: Int) {
+        let baseURL = URL(string: "http://quentindev.ovh/Parking/user.php")!
         
-            
-            
-            
+        print("aheazhjkahjzkhjkazhkeazhkjza")
+        let query: [String: String] = [
+            "todo": "selectAllPlaceUtilisateur",
+            "id" : String(id_utilisateur)
+        ]
         
+        let url = baseURL.withQueries(query)!
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data,
+                let rawJson = try? JSONSerialization.jsonObject(with: data),
+                let json = rawJson as? [[String : String]]{                
+                for json in json{
+                    let parkingInfo = Place(json:json)
+                    completion(parkingInfo)
+                }
+                
+            }
             
         }
-        //task.resume()
-    
+        task.resume()
     }
+    
+}
 
